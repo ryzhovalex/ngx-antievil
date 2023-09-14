@@ -1,4 +1,4 @@
-export enum ErrorCode {
+export enum CoreErrorCode {
     SystemServer = "error.system-server",
     SystemClient = "error.system-client",
     NotFound = "errors.not-found",

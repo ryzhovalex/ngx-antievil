@@ -1,4 +1,4 @@
-import { ErrorCode } from "./codes";
+import { CoreErrorCode } from "./codes";
 import { StringUtils, TranslationOptions } from "./utils";
 
 export interface BaseErrorOptions extends ErrorOptions {
@@ -11,7 +11,7 @@ export interface BaseErrorOptions extends ErrorOptions {
  */
 export class BaseError extends Error
 {
-  public Code: ErrorCode = ErrorCode.SystemClient;
+  public Code: string = CoreErrorCode.SystemClient;
   public IsAlertSpawned = true;
   public IsLogged = true;
 
@@ -28,7 +28,7 @@ export class BaseError extends Error
     }
   }
 
-  public getCode(): ErrorCode
+  public getCode(): string
   {
     return this.Code;
   }
@@ -53,7 +53,7 @@ export class SilentError extends BaseError
 
 export class NotFoundError extends BaseError
 {
-  public override Code = ErrorCode.NotFound;
+  public override Code = CoreErrorCode.NotFound;
 
   public constructor(title?: string, value?: string, options?: object)
   {
@@ -69,12 +69,12 @@ export class NotFoundError extends BaseError
 
 export class LogicError extends BaseError
 {
-  public override Code = ErrorCode.LogicError;
+  public override Code = CoreErrorCode.LogicError;
 }
 
 export class DuplicateNameError extends BaseError
 {
-  public override Code = ErrorCode.DuplicateName;
+  public override Code = CoreErrorCode.DuplicateName;
 
   private duplicatedName: string;
 
@@ -96,7 +96,7 @@ export class DuplicateNameError extends BaseError
 
 export class PleaseDefineError extends BaseError
 {
-  public override Code = ErrorCode.PleaseDefine;
+  public override Code = CoreErrorCode.PleaseDefine;
 
   public constructor(
     cannotDo: string,
@@ -114,7 +114,7 @@ export class ExpectError extends BaseError {}
  */
 export class TypeExpectError extends ExpectError
 {
-  public override Code = ErrorCode.TypeExpect;
+  public override Code = CoreErrorCode.TypeExpect;
 
   public constructor(
     obj: object,
@@ -134,7 +134,7 @@ export class TypeExpectError extends ExpectError
 
 export class UnsupportedError extends BaseError
 {
-  public override Code = ErrorCode.Unsupported;
+  public override Code = CoreErrorCode.Unsupported;
 
   public constructor(
     title?: string,
