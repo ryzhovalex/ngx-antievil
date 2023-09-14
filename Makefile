@@ -8,3 +8,6 @@ test:
 	ng test
 
 check: lint test
+
+pack:
+	ng build ngx-antievil && cd dist/ngx-antievil && yarn pack && mv slimebones-ngx-antievil-v*.tgz ../
