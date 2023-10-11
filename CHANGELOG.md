@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.1.3
+
+### Features
+
+- Update Angular to v15
+
 ## 0.1.2
 
 - fix: alternative publish
